@@ -1,4 +1,5 @@
 const toast = new bootstrap.Toast(document.getElementById('divToast'));
+document.getElementById('anoAtual').innerText = new Date().getFullYear();
 
 document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
   link.addEventListener('click', (e) => {
