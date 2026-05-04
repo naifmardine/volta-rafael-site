@@ -1,5 +1,6 @@
 :root {
   --verde: #009440;
+  --verde-escuro: #0b3d1e;
   --amarelo: #ffcb00;
   --azul: #302681;
   --preto: #000000;
@@ -16,16 +17,30 @@ body {
   font-family: Inter, Roboto, sans-serif;
   background-color: var(--cinza-claro);
   color: var(--preto);
+  line-height: 1.6;
 }
 
 h1,
 h2,
 h3 {
-  font-family: Montserrate, Poppins, sans-serif;
+  font-family: Montserrat, Poppins, sans-serif;
+  font-weight: 800;
+  line-height: 1.15;
 }
 
+h1 { font-weight: 900; }
+
 .font-montserrat {
-  font-family: Montserrat, serif;
+  font-family: Montserrat, sans-serif;
+}
+
+.cor-verde-escuro {
+  color: var(--verde-escuro);
+}
+
+.bg-verde-escuro {
+  background-color: var(--verde-escuro);
+  color: var(--branco);
 }
 
 .font-poppins {
@@ -97,25 +112,30 @@ section {
 
 .nav-link {
   color: white;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
-.nav-link:focus {
-  color: white;
-}
-
-.nav-link:hover {
-  color: var(--verde);
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active,
+.nav-link.active,
+.nav-link.active:focus {
+  color: white !important;
+  background-color: var(--verde) !important;
+  font-weight: 600;
 }
 
 .hero {
   background-image: url("hero.webp");
-  /* Imagem adicionada para a seção Hero */
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* Efeito Parallax simples */
-  height: 100vh;
+  /* Parallax em desktop; mobile usa scroll (override abaixo) */
+  min-height: 100vh;
+  padding: 80px 16px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,9 +149,73 @@ section {
   max-width: 700px;
 }
 
+.hero-qr {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 14px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.hero-qr img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.hero-qr-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--preto);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  #textoHero {
+    text-align: left;
+    flex: 1.4;
+    margin-top: 0;
+  }
+
+  #textoHero .hero-ctas,
+  #textoHero .hero-pix-pill {
+    justify-content: flex-start;
+  }
+
+  .hero-qr {
+    flex: 0 0 240px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-qr {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .hero {
     background-image: url("hero-mobile.webp");
+    background-attachment: scroll;
     align-items: center;
   }
 }
@@ -143,7 +227,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: linear-gradient(180deg, rgba(11, 61, 30, 0.65) 0%, rgba(0, 0, 0, 0.85) 100%);
 }
 
 .hero-content {
@@ -246,7 +330,7 @@ section {
   transition: background-color 0.6s ease;
 }
 
-.active {
+.dot.active {
   background-color: var(--verde);
 }
 
@@ -302,4 +386,897 @@ section {
 footer {
   background-color: var(--preto);
   color: white;
+}
+
+footer a {
+  color: var(--amarelo);
+}
+
+/* --------------------- CTAs do hero (doação above-the-fold) --------------------- */
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* Botão amarelo principal — funciona em qualquer fundo (hero, seções claras, etc.) */
+.btn-doar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--amarelo);
+  color: var(--preto);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 28px;
+  border: 2px solid var(--amarelo);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  line-height: 1.2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-doar:hover,
+.btn-doar:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 203, 0, 0.4);
+  background: var(--amarelo);
+  color: var(--preto);
+  text-decoration: none;
+}
+
+/* Botão outline branco — pra fundos escuros (hero, etc.) */
+.btn-vakinha {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--branco);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 28px;
+  border: 2px solid var(--branco);
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1.2;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-vakinha:hover,
+.btn-vakinha:focus-visible {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--branco);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Botão outline branco — pra usar em fundos escuros (ex: seção verde-escuro "Por que não voo") */
+.btn-outline-branco {
+  background: transparent;
+  color: var(--branco);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border: 2px solid var(--branco);
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-outline-branco:hover,
+.btn-outline-branco:focus-visible {
+  background: var(--branco);
+  color: var(--verde-escuro);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.hero-pix-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 203, 0, 0.4);
+  border-radius: 999px;
+  color: var(--branco);
+  font-size: 0.95rem;
+}
+
+.hero-pix-pill code {
+  color: var(--amarelo);
+  font-weight: 700;
+  background: transparent;
+  padding: 0;
+}
+
+.hero-pix-pill .copy-btn {
+  background: var(--amarelo);
+  color: var(--preto);
+  border: none;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* --------------------- Barra de progresso da arrecadação --------------------- */
+.progresso-arrecadacao {
+  background: var(--preto);
+  color: var(--branco);
+  padding: 40px 20px;
+}
+
+.progresso-arrecadacao .container {
+  max-width: 900px;
+}
+
+.progresso-arrecadacao h2 {
+  color: var(--branco);
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.progresso-arrecadacao .valores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.progresso-arrecadacao .valor-arrecadado strong {
+  color: var(--amarelo);
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+.progresso-arrecadacao .valor-meta strong {
+  color: var(--branco);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.progresso-bar {
+  background: rgba(255, 255, 255, 0.12);
+  height: 18px;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progresso-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--verde), var(--amarelo));
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+.progresso-legenda {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.progresso-legenda .destaque {
+  color: var(--amarelo);
+  font-weight: 700;
+}
+
+/* --------------------- CTA amarelo full-width (estilo post) --------------------- */
+.cta-amarelo {
+  background: var(--amarelo);
+  color: var(--preto);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 28px 20px;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.cta-amarelo a,
+.cta-amarelo button {
+  background: var(--preto);
+  color: var(--amarelo);
+  font-weight: 800;
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.cta-amarelo a:hover,
+.cta-amarelo button:hover {
+  opacity: 0.88;
+}
+
+/* --------------------- Facts card "Quem é Rafael" --------------------- */
+.facts-card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.facts-card h3 {
+  font-weight: 800;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.fact-item {
+  padding: 12px;
+  background: var(--cinza-claro);
+  border-radius: 10px;
+}
+
+.fact-item .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--cinza-escuro);
+  opacity: 0.7;
+  display: block;
+}
+
+.fact-item .value {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--preto);
+  margin-top: 4px;
+  display: block;
+}
+
+/* --------------------- Bloco "Por que não voo comercial?" --------------------- */
+.por-que-nao-voo {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  padding: 60px 20px;
+}
+
+.por-que-nao-voo h2 {
+  color: var(--branco);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.por-que-nao-voo h2 .destaque {
+  color: var(--amarelo);
+}
+
+.por-que-nao-voo .subtitulo {
+  text-align: center;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+.motivos-lista {
+  max-width: 780px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.motivos-lista li {
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--amarelo);
+  border-radius: 8px;
+}
+
+.motivos-lista li strong {
+  color: var(--amarelo);
+}
+
+/* --------------------- Cards "Como ajudar além de doar" --------------------- */
+.cards-ajudar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card-ajudar {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-ajudar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-ajudar .icone {
+  font-size: 2.4rem;
+  color: var(--verde);
+  margin-bottom: 12px;
+}
+
+.card-ajudar h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.card-ajudar p {
+  font-size: 0.95rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 16px;
+}
+
+.card-ajudar .btn-card {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--azul);
+  color: var(--branco);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.card-ajudar .btn-card:hover {
+  background: var(--verde);
+  color: var(--branco);
+}
+
+/* --------------------- Cards de documentos (PDF) --------------------- */
+.cards-docs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card-doc {
+  display: block;
+  background: var(--branco);
+  border-radius: 14px;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--preto);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.card-doc:hover,
+.card-doc:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  color: var(--preto);
+  text-decoration: none;
+  border-color: var(--amarelo);
+}
+
+.card-doc-icone {
+  width: 48px;
+  height: 48px;
+  background: var(--azul);
+  color: var(--branco);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.card-doc h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.card-doc p {
+  font-size: 0.9rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.card-doc-data {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.card-doc-acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.card-doc:hover .card-doc-acao {
+  color: var(--verde);
+}
+
+/* --------------------- Layout 2+1 dos cards "Como ajudar além de doar" --------------------- */
+.cards-ajudar.cards-ajudar-pair {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 900px;
+  margin: 0 auto 28px;
+}
+
+.card-share {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.card-share .icone {
+  margin-bottom: 8px;
+}
+
+.card-share h3,
+.card-share > p {
+  text-align: left;
+}
+
+.card-share > p {
+  max-width: 760px;
+}
+
+.share-mensagem {
+  margin: 16px 0;
+}
+
+.share-mensagem textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  background: var(--cinza-claro);
+  font-family: Inter, Roboto, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  resize: vertical;
+  color: var(--preto);
+}
+
+.share-mensagem textarea:focus {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+}
+
+.share-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-share-channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.btn-share-channel:hover,
+.btn-share-channel:focus-visible {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn-share-whats { background: #25d366; color: white; }
+.btn-share-x     { background: #000;     color: white; }
+.btn-share-fb    { background: #1877f2;  color: white; }
+.btn-share-copy  { background: var(--azul); color: white; }
+
+.btn-share-whats:hover,
+.btn-share-x:hover,
+.btn-share-fb:hover,
+.btn-share-copy:hover { color: white; }
+
+/* --------------------- pix.html — UI dedicada de doação --------------------- */
+.pix-hero {
+  background: linear-gradient(135deg, var(--verde-escuro) 0%, #052b13 100%);
+  color: var(--branco);
+  padding: 110px 20px 50px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.pix-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  color: var(--branco);
+}
+
+.pix-hero p {
+  font-size: 1.05rem;
+  opacity: 0.92;
+  margin-bottom: 0;
+}
+
+.pix-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 24px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 880px) {
+  .pix-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pix-card {
+  background: var(--branco);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pix-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.pix-card-destaque {
+  border-top: 5px solid var(--amarelo);
+}
+
+.pix-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pix-card-icone {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--amarelo);
+  color: var(--preto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.pix-card-icone-azul {
+  background: var(--azul);
+  color: var(--branco);
+}
+
+.pix-card-titulo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.pix-card-subtitulo {
+  font-size: 0.9rem;
+  color: var(--cinza-escuro);
+  opacity: 0.75;
+  margin: 4px 0 0;
+}
+
+.pix-chave-box {
+  background: var(--cinza-claro);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.pix-chave-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.pix-chave-valor {
+  display: block;
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--preto);
+  background: transparent;
+  padding: 0;
+  margin-bottom: 14px;
+  word-break: break-all;
+  user-select: all;
+}
+
+.pix-btn-copiar {
+  background: var(--verde);
+  color: var(--branco);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pix-btn-copiar:hover,
+.pix-btn-copiar:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 148, 64, 0.3);
+}
+
+.pix-btn-codigo {
+  width: 100%;
+  background: var(--azul);
+  color: var(--branco);
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.pix-btn-codigo:hover,
+.pix-btn-codigo:focus-visible {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  color: var(--branco);
+}
+
+.pix-dados-bancarios {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 16px;
+}
+
+.pix-dados-titulo {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.65;
+  margin-bottom: 10px;
+}
+
+.pix-dados-bancarios ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pix-dados-bancarios li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 7px 0;
+  font-size: 0.95rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+}
+
+.pix-dados-bancarios li:last-child {
+  border-bottom: none;
+}
+
+.pix-dados-bancarios li span {
+  opacity: 0.65;
+  font-size: 0.85rem;
+}
+
+.pix-dados-bancarios li strong {
+  text-align: right;
+  word-break: break-word;
+}
+
+.pix-card-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pix-card-qr .pix-card-titulo {
+  margin-bottom: 4px;
+}
+
+.pix-card-qr .pix-card-subtitulo {
+  margin-bottom: 16px;
+}
+
+.pix-card-qr img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.pix-card-vakinha {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pix-card-vakinha .pix-card-header {
+  margin-bottom: 0;
+  flex: 1;
+  width: 100%;
+}
+
+.pix-btn-vakinha {
+  background: var(--azul);
+  color: var(--branco);
+  border: 2px solid var(--azul);
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  align-self: flex-start;
+}
+
+.pix-btn-vakinha:hover,
+.pix-btn-vakinha:focus-visible {
+  background: var(--branco);
+  color: var(--azul);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* --------------------- Sticky CTA mobile --------------------- */
+.sticky-cta-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sticky-cta-mobile {
+    display: flex;
+    gap: 8px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 12px;
+    background: var(--preto);
+    border-top: 2px solid var(--amarelo);
+    z-index: 999;
+    box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.35);
+  }
+
+  .sticky-cta-mobile a {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  .sticky-cta-mobile .btn-pix {
+    background: var(--amarelo);
+    color: var(--preto);
+  }
+
+  .sticky-cta-mobile .btn-share {
+    background: transparent;
+    color: var(--branco);
+    border: 2px solid var(--branco);
+  }
+
+  /* Espaço no rodapé pra barra não tapar conteúdo */
+  body {
+    padding-bottom: 68px;
+  }
+
+  #btnWhatsApp {
+    bottom: 5.5rem;
+  }
+}
+
+/* --------------------- Slideshow images robustas (CLS) --------------------- */
+.slideshow-container .slideContent img {
+  max-height: 500px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --------------------- prefers-reduced-motion --------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  #btnWhatsApp:hover {
+    transform: none;
+  }
 }

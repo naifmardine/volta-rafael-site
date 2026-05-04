@@ -1,0 +1,117 @@
+# =================================================================
+#  voltarafael.com.br — config Apache (.htaccess)
+#  Cache + compressão + headers de segurança
+#  Locaweb usa Apache com mod_* habilitados; arquivo é ignorado
+#  silenciosamente caso o módulo não exista.
+# =================================================================
+
+# ---------- Compressão (gzip / deflate) ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/ld+json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# ---------- Cache (Expires) ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                              "access plus 1 month"
+
+  # HTML — 1 hora (pra atualizações refletirem rápido)
+  ExpiresByType text/html                     "access plus 1 hour"
+
+  # CSS / JS — 1 ano (HTML usa ?v=N pra cache bust)
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType application/x-javascript      "access plus 1 year"
+
+  # Imagens — 1 ano
+  ExpiresByType image/webp                    "access plus 1 year"
+  ExpiresByType image/jpeg                    "access plus 1 year"
+  ExpiresByType image/jpg                     "access plus 1 year"
+  ExpiresByType image/png                     "access plus 1 year"
+  ExpiresByType image/gif                     "access plus 1 year"
+  ExpiresByType image/svg+xml                 "access plus 1 year"
+  ExpiresByType image/x-icon                  "access plus 1 year"
+
+  # Fontes — 1 ano
+  ExpiresByType font/woff                     "access plus 1 year"
+  ExpiresByType font/woff2                    "access plus 1 year"
+  ExpiresByType application/font-woff         "access plus 1 year"
+  ExpiresByType application/font-woff2        "access plus 1 year"
+
+  # Vídeos / áudios — 1 mês
+  ExpiresByType video/mp4                     "access plus 1 month"
+  ExpiresByType audio/mpeg                    "access plus 1 month"
+
+  # PDFs e outros documentos — 1 semana
+  ExpiresByType application/pdf               "access plus 1 week"
+
+  # robots.txt e sitemap.xml — 1 dia
+  ExpiresByType text/plain                    "access plus 1 day"
+  ExpiresByType application/xml               "access plus 1 day"
+</IfModule>
+
+# ---------- Cache-Control headers ----------
+<IfModule mod_headers.c>
+  # Imagens, fontes, CSS, JS — imutáveis (1 ano)
+  <FilesMatch "\.(webp|jpe?g|png|gif|svg|ico|woff2?|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML — sempre revalidar
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # PDFs — 1 semana
+  <FilesMatch "\.pdf$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+
+  # ---------- Headers de segurança ----------
+  # HSTS — força HTTPS por 1 ano (HTTPS já ativo na Locaweb)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Bloqueia MIME sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Bloqueia clickjacking (permite mesmo origin pra possíveis embeds futuros)
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Reduz info de referer pra terceiros
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Desativa permissões de hardware que o site não usa
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), accelerometer=(), gyroscope=()"
+
+  # Remove header X-Powered-By se servidor expõe
+  Header unset X-Powered-By
+</IfModule>
+
+# ---------- Tipos MIME corretos pra fontes ----------
+<IfModule mod_mime.c>
+  AddType image/webp                          .webp
+  AddType font/woff                           .woff
+  AddType font/woff2                          .woff2
+  AddType application/json                    .json
+  AddType application/ld+json                 .jsonld
+</IfModule>
+
+# ---------- 404 redireciona pra index ----------
+# (opcional — descomente se quiser que páginas inexistentes voltem ao site)
+# ErrorDocument 404 /index.html
+
+# ---------- Bloqueia listagem de diretório ----------
+Options -Indexes

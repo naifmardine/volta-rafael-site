@@ -4,19 +4,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Volta, Rafael! Missão humanitária de repatriação.">
-  <meta name="keywords" content="missão humanitária, repatriação">
+
+  <title>Como doar via PIX — Volta, Rafael!</title>
+  <meta name="description" content="Todas as formas de doação para a missão humanitária Volta, Rafael!: chave PIX (CPF), código PIX, dados bancários e Vakinha oficial.">
+  <meta name="keywords" content="PIX, doação, Volta Rafael, missão humanitária, Vakinha, repatriação">
+  <meta name="robots" content="index, follow">
   <meta name="author" content="Ruslan Guerra Marzo">
   <link rel="author" href="https://ruslanguerramarzo.web.app">
-  <title>Volta, Rafael! - Missão humanitária de repatriação</title>
-  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+  <link rel="canonical" href="https://www.voltarafael.com.br/pix.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Como doar via PIX — Volta, Rafael!">
+  <meta property="og:description" content="Chave PIX, código PIX e Vakinha oficial da missão humanitária Volta, Rafael!">
+  <meta property="og:image" content="https://www.voltarafael.com.br/assets/hero-2.webp">
+  <meta property="og:image:alt" content="Rafael Felix dos Santos — Volta, Rafael!">
+  <meta property="og:url" content="https://www.voltarafael.com.br/pix.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Volta, Rafael!">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como doar via PIX — Volta, Rafael!">
+  <meta name="twitter:description" content="Chave PIX, código PIX e Vakinha oficial da missão humanitária.">
+  <meta name="twitter:image" content="https://www.voltarafael.com.br/assets/hero-2.webp">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts: Montserrat, Poppins, Inter, Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat|Poppins|Inter|Roboto" rel="stylesheet">
+  <!-- Google Fonts (display=swap) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800;900&family=Poppins:wght@600;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="assets/style.css?v=2">
+  <link rel="stylesheet" href="assets/style.css?v=6">
 </head>
 
 <body>
@@ -39,16 +67,13 @@
               <a class="nav-link" href="index.html#home">Início</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#historia">História</a>
+              <a class="nav-link active" aria-current="page" href="pix.html">Como doar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#nota">Nota</a>
+              <a class="nav-link" href="historico.html">Histórico médico</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#propostas">Propostas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#declaracao">Declaração</a>
+              <a class="nav-link" href="index.html#documentos">Documentos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.html#contact">Contato</a>
@@ -65,49 +90,133 @@
   </header>
 
   <main>
-    <section class="py-5 bg-light" id="ajuda">
+    <!-- Hero compacto -->
+    <section class="pix-hero">
       <div class="container">
-        <h2 class="section-title text-center mt-4 mb-3">Como ajudar</h2>
-        <div>
-          <p>Esta campanha foi criada com um único objetivo: trazer o Rafael de volta para casa.</p>
-          <p>Todos os recursos arrecadados são destinados exclusivamente aos custos da repatriação médica, 
-            conforme descrito na <a href="index.html#declaracao">declaração pública de finalidade</a>, disponível neste site.</p>
-        </div>
-        <div class="row" style="max-width: 650px;">
-          <div class="col-sm">
-            <p><b>Vaquinha online</b>: <a href="https://www.vakinha.com.br/vaquinha/voltarafael-com-br">https://www.vakinha.com.br/vaquinha/voltarafael-com-br</a></p>
-            <p>
-              <b>Chave Pix</b> (CPF): <span>430.716.353-20 
-                <i class="fa fa-copy" title="Copiar chave Pix (CPF)" onclick="copyPixKey()" 
-                  style="cursor:pointer; color:var(--azul);"></i></span><br>
-              <b>Titular</b>: Rafael Brito dos Santos (pai)<br>
-              <b>Banco</b>: Banco do Brasil<br>
-              <b>Agência</b>: 3163-1<br>
-              <b>Conta</b>: 112895-7
-            </p>
-            <p>
-              <button type="button" class="btn btn-primary" style="border-color:var(--azul); background-color:var(--azul);" 
-                onclick="copyPixCode()">
-                <i class="fa fa-copy"></i> Copiar código Pix
+        <h1>Como ajudar</h1>
+        <p>Volta, Rafael! — Missão humanitária de repatriação</p>
+      </div>
+    </section>
+
+    <!-- Disclaimer rápido -->
+    <section class="py-4">
+      <div class="container" style="max-width: 760px;">
+        <p class="text-center mb-2">
+          Esta campanha foi criada com um único objetivo: <strong>trazer o Rafael de volta para casa</strong>.
+        </p>
+        <p class="text-center small mb-0" style="opacity: 0.8;">
+          Todos os recursos arrecadados são destinados exclusivamente aos custos da repatriação médica,
+          conforme a <a href="assets/declaracao-publica-de-finalidade.pdf" target="_blank" rel="noopener">declaração pública de finalidade</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Grid principal de doação -->
+    <section class="py-4 bg-light" id="ajuda">
+      <div class="container">
+        <div class="pix-grid">
+
+          <!-- Card destaque PIX -->
+          <div class="pix-card pix-card-destaque" data-aos="fade-up">
+            <div class="pix-card-header">
+              <div class="pix-card-icone"><i class="fa fa-bolt" aria-hidden="true"></i></div>
+              <div>
+                <h2 class="pix-card-titulo">PIX</h2>
+                <p class="pix-card-subtitulo">Forma mais rápida de doar — qualquer valor</p>
+              </div>
+            </div>
+
+            <div class="pix-chave-box">
+              <span class="pix-chave-label">Chave PIX (CPF)</span>
+              <code class="pix-chave-valor">430.716.353-20</code>
+              <button type="button" class="pix-btn-copiar" onclick="copyPixKey()" aria-label="Copiar chave PIX (CPF)">
+                <i class="fa fa-copy" aria-hidden="true"></i> Copiar chave
               </button>
-            </p>
+            </div>
+
+            <button type="button" class="pix-btn-codigo" onclick="copyPixCode()" aria-label="Copiar código PIX completo (BR Code)">
+              <i class="fa fa-clipboard" aria-hidden="true"></i> Copiar código PIX (BR Code)
+            </button>
+
+            <div class="pix-dados-bancarios">
+              <p class="pix-dados-titulo">Dados bancários</p>
+              <ul>
+                <li><span>Titular</span><strong>Rafael Brito dos Santos (pai)</strong></li>
+                <li><span>Banco</span><strong>Banco do Brasil</strong></li>
+                <li><span>Agência</span><strong>3163-1</strong></li>
+                <li><span>Conta</span><strong>112895-7</strong></li>
+              </ul>
+            </div>
           </div>
-          <div class="col-sm" style="text-align: center;">
-            <img src="assets/qr-code-pix.jpeg" alt="Código QR do Pix" class="border rounded-5" style="max-width: 300px;" loading="lazy">
+
+          <!-- Card QR Code -->
+          <div class="pix-card pix-card-qr" data-aos="fade-up">
+            <h2 class="pix-card-titulo">QR Code</h2>
+            <p class="pix-card-subtitulo">Aponte a câmera do app de banco</p>
+            <img src="assets/qr-code-pix.jpeg" alt="Código QR do PIX — chave CPF 430.716.353-20" width="280" height="280" loading="lazy">
+            <p class="small mt-3 mb-0" style="opacity: 0.7;">Funciona em qualquer banco</p>
           </div>
+
+        </div>
+
+        <!-- Card Vakinha -->
+        <div class="pix-card pix-card-vakinha" data-aos="fade-up">
+          <div class="pix-card-header">
+            <div class="pix-card-icone pix-card-icone-azul"><i class="fa fa-heart" aria-hidden="true"></i></div>
+            <div>
+              <h2 class="pix-card-titulo">Vakinha online</h2>
+              <p class="pix-card-subtitulo">Doe com cartão, boleto ou PIX pela plataforma Vakinha — alcance internacional</p>
+            </div>
+          </div>
+          <a href="https://www.vakinha.com.br/vaquinha/voltarafael-com-br" target="_blank" rel="noopener" class="pix-btn-vakinha">
+            <i class="fa fa-external-link" aria-hidden="true"></i> Abrir Vakinha oficial
+          </a>
         </div>
       </div>
     </section>
+
+    <!-- Outras formas de ajudar -->
+    <section class="py-5">
+      <div class="container text-center" style="max-width: 700px;">
+        <h2 class="section-title">Não pode doar agora?</h2>
+        <p class="mb-4" style="opacity: 0.85;">
+          Tudo bem. Tem outras formas igualmente importantes de ajudar a missão — desde compartilhar a história até articular contatos com imprensa, empresas e ONGs.
+        </p>
+        <a href="index.html#ajudar" class="btn-doar">
+          <i class="fa fa-share-alt" aria-hidden="true"></i> Ver outras formas de ajudar
+        </a>
+      </div>
+    </section>
+
+    <!-- Sticky CTA mobile -->
+    <div class="sticky-cta-mobile" aria-label="Ações rápidas">
+      <a href="#ajuda" class="btn-pix">
+        <i class="fa fa-heart" aria-hidden="true"></i> Doar via PIX
+      </a>
+      <a href="https://api.whatsapp.com/send?text=Ajude%20Rafael%20a%20voltar%20pro%20Brasil%3A%20https%3A%2F%2Fwww.voltarafael.com.br%2F" target="_blank" rel="noopener" class="btn-share">
+        <i class="fa fa-share-alt" aria-hidden="true"></i> Compartilhar
+      </a>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="py-4 text-center bg-gradient">
-    <div>&copy; <span id="anoAtual">2025</span> Desenvolvido por <a href="https://ruslanguerramarzo.web.app" class="text-decoration-none">Ruslan G. Marzo</a></div>
+    <div class="container">
+      <p class="mb-2"><strong>Volta, Rafael!</strong> — Missão humanitária de repatriação</p>
+      <p class="mb-2 small">
+        Contato: <a href="mailto:voltarafaelbr@gmail.com">voltarafaelbr@gmail.com</a>
+        · <a href="https://www.instagram.com/voltarafaelbr" target="_blank" rel="noopener">Instagram</a>
+        · <a href="https://www.facebook.com/voltarafael" target="_blank" rel="noopener">Facebook</a>
+      </p>
+      <p class="mb-0 small">
+        &copy; <span id="anoAtual">2025</span> · Site desenvolvido por <a href="https://ruslanguerramarzo.web.app" class="text-decoration-none">Ruslan G. Marzo</a> · Campanha apoiada pela <a href="https://fgvjr.com" target="_blank" rel="noopener">FGV Jr.</a>
+      </p>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/script.js?v=2"></script>
+  <script src="assets/script.js?v=6"></script>
 </body>
 
 </html>
