@@ -516,68 +516,13 @@ footer a {
   cursor: pointer;
 }
 
-/* --------------------- Barra de progresso da arrecadação --------------------- */
-.progresso-arrecadacao {
-  background: var(--preto);
-  color: var(--branco);
-  padding: 40px 20px;
-}
-
-.progresso-arrecadacao .container {
-  max-width: 900px;
-}
-
-.progresso-arrecadacao h2 {
-  color: var(--branco);
-  font-weight: 900;
-  margin-bottom: 20px;
-}
-
-.progresso-arrecadacao .valores {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 16px;
-  font-size: 1rem;
-}
-
-.progresso-arrecadacao .valor-arrecadado strong {
-  color: var(--amarelo);
-  font-size: 1.6rem;
-  font-weight: 900;
-}
-
-.progresso-arrecadacao .valor-meta strong {
-  color: var(--branco);
-  font-size: 1.2rem;
-  font-weight: 800;
-}
-
-.progresso-bar {
-  background: rgba(255, 255, 255, 0.12);
-  height: 18px;
-  border-radius: 999px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progresso-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--verde), var(--amarelo));
-  border-radius: 999px;
-  transition: width 0.8s ease;
-}
-
-.progresso-legenda {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-.progresso-legenda .destaque {
-  color: var(--amarelo);
-  font-weight: 700;
+/* --------------------- Ícone Pix (SVG inline) --------------------- */
+.pix-icon-svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  fill: currentColor;
 }
 
 /* --------------------- CTA amarelo full-width (estilo post) --------------------- */

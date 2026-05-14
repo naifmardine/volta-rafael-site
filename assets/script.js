@@ -1,9 +1,5 @@
-// --- Constantes da campanha (atualizar manualmente no deploy) ---
-// Valores conforme Análise Estratégica — extrato 15/03/2026
+// --- Constantes da campanha ---
 const CAMPANHA = {
-  arrecadadoBRL: 78252,          // PIX (R$ 74.349,77) + Vakinha (R$ 3.902,91)
-  metaMinimaBRL: 1920000,         // Menor cotação UTI aérea (Central Ambulância Aérea, Portugal)
-  dataAtualizacao: '2026-03-15',  // ISO; mostrado em data brasileira na legenda
   dataAVC: '2025-07-01',          // Data aproximada do AVC — base pro contador de tempo
 };
 
@@ -30,31 +26,6 @@ function tempoTexto(meses) {
   }
   return `há mais de ${meses} ${meses === 1 ? 'mês' : 'meses'}`;
 }
-
-// --- Atualização dinâmica do progresso e do tempo desde o AVC (só no index) ---
-(function atualizarProgresso() {
-  const fill = document.getElementById('progressoFill');
-  const bar = fill ? fill.parentElement : null;
-  const valArr = document.getElementById('valorArrecadado');
-  const valMeta = document.getElementById('valorMeta');
-  const tempo = document.getElementById('tempoFilipinas');
-
-  if (fill && bar) {
-    const pct = Math.min(100, (CAMPANHA.arrecadadoBRL / CAMPANHA.metaMinimaBRL) * 100);
-    fill.style.width = pct.toFixed(1) + '%';
-    bar.setAttribute('aria-valuenow', String(CAMPANHA.arrecadadoBRL));
-    bar.setAttribute('aria-valuemax', String(CAMPANHA.metaMinimaBRL));
-  }
-
-  const fmt = (n) => 'R$ ' + n.toLocaleString('pt-BR');
-  if (valArr) valArr.innerText = fmt(CAMPANHA.arrecadadoBRL);
-  if (valMeta) valMeta.innerText = fmt(CAMPANHA.metaMinimaBRL);
-
-  if (tempo) {
-    const meses = mesesDesde(CAMPANHA.dataAVC);
-    tempo.innerText = tempoTexto(meses);
-  }
-})();
 
 // --- Mensagem de compartilhamento (montada dinamicamente em todas as páginas) ---
 (function configurarShare() {

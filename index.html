@@ -169,7 +169,7 @@
             </a>
           </div>
           <div class="hero-pix-pill" title="Chave PIX (CPF)">
-            <i class="fa fa-bolt" aria-hidden="true"></i>
+            <svg class="pix-icon-svg" viewBox="0 0 512 512" role="img" aria-label="Pix" xmlns="http://www.w3.org/2000/svg"><path d="M242.4 292.5C247.8 287.1 257.1 287.1 262.5 292.5L339.5 369.5C353.7 383.7 372.6 391.5 392.6 391.5H407.7L310.6 488.6C280.3 518.1 231.1 518.1 200.8 488.6L103.3 391.2H112.6C132.6 391.2 151.5 383.4 165.7 369.2L242.4 292.5zM262.5 218.9C257.1 224.3 247.8 224.3 242.4 218.9L165.7 142.2C151.5 127.1 132.6 120.2 112.6 120.2H103.3L200.7 22.8C231.1-7.6 280.3-7.6 310.6 22.8L407.8 119.9H392.6C372.6 119.9 353.7 127.7 339.5 141.9L262.5 218.9zM112.6 142.7C126.4 142.7 139.1 148.3 149.7 158L226.4 234.7C233.4 241.7 242.6 245.2 251.8 245.2C260.1 245.2 270.2 241.7 277.2 234.7L354.2 157.7C363.9 148 377.5 142.4 391.3 142.4H430.2L488.6 200.8C518.9 231.1 518.9 280.3 488.6 310.6L430.2 369H391.3C377.5 369 363.9 363.4 354.2 353.7L277.2 276.7C263.6 263.1 240.1 263.1 226.5 276.7L149.7 353.4C139.1 363.1 126.4 368.7 112.6 368.7H80.8L22.4 310.3C-7.9 280-7.9 230.8 22.4 200.5L80.8 142.1H112.6z"/></svg>
             <span>Chave PIX (CPF): <code>430.716.353-20</code></span>
             <button type="button" class="copy-btn" onclick="copyPixKey()" aria-label="Copiar chave PIX (CPF)">Copiar</button>
           </div>
@@ -181,31 +181,12 @@
       </div>
     </section>
 
-    <!-- Progresso da arrecadação -->
-    <section class="progresso-arrecadacao" id="progresso" data-aos="fade-up">
+    <!-- CTA: formas de doar -->
+    <section class="py-4 text-center" data-aos="fade-up">
       <div class="container">
-        <h2 class="text-center">Progresso da missão</h2>
-        <div class="valores">
-          <div class="valor-arrecadado">
-            <span>Arrecadado</span><br>
-            <strong id="valorArrecadado">R$ 78.252</strong>
-          </div>
-          <div class="valor-meta">
-            <span>Meta mínima (UTI aérea)</span><br>
-            <strong id="valorMeta">R$ 1.920.000</strong>
-          </div>
-        </div>
-        <div class="progresso-bar" role="progressbar" aria-valuemin="0" aria-valuemax="1920000" aria-valuenow="78252" aria-label="Valor arrecadado até a meta mínima">
-          <div class="progresso-fill" id="progressoFill" style="width: 4.1%;"></div>
-        </div>
-        <p class="progresso-legenda">
-          Última atualização: <strong>15 de março de 2026</strong> · Rafael está <span class="destaque" id="tempoFilipinas">há mais de 9 meses</span> longe do Brasil · Meta segundo a menor cotação de UTI aérea (Central Ambulância Aérea / Portugal).
-        </p>
-        <div class="text-center mt-3">
-          <a href="pix.html" class="btn-doar" style="font-size: 0.95rem;">
-            <i class="fa fa-heart" aria-hidden="true"></i> Ver todas as formas de doar
-          </a>
-        </div>
+        <a href="pix.html" class="btn-doar">
+          <i class="fa fa-heart" aria-hidden="true"></i> Ver todas as formas de doar
+        </a>
       </div>
     </section>
 
